@@ -15,17 +15,17 @@
             <div class="p-4 relative z-10 bg-white border border-gray-200 rounded-xl sm:mt-10 md:p-10 dark:bg-neutral-900 dark:border-neutral-700">
                 <!-- Header -->
                 <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-neutral-200">
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-neutral-200">
                         Verify Cargo Certification
                     </h2>
                 </div>
 
                 <form>
-                    <!-- Verification Method Tabs -->
-                    <div class="flex border-b border-gray-200 mb-6">
-                        <button type="button" id="tab-certificate" class="tab-button py-4 px-6 text-blue-600 border-b-2 border-blue-600 font-medium">Certificate Number</button>
-                        <button type="button" id="tab-upload" class="tab-button py-4 px-6 text-gray-600 dark:text-gray-400 font-medium">Upload Certificate</button>
-                        <button type="button" id="tab-qr" class="tab-button py-4 px-6 text-gray-600 dark:text-gray-400 font-medium">Scan QR Code</button>
+                    <!-- Verification Method Tabs - Ensuring they stay on one line -->
+                    <div class="flex border-b border-gray-200 mb-6 overflow-x-auto no-scrollbar">
+                        <button type="button" id="tab-certificate" class="tab-button whitespace-nowrap py-3 px-2 sm:px-4 md:px-6 text-xs sm:text-sm md:text-base text-blue-600 border-b-2 border-blue-600 font-medium flex-shrink-0">Certificate Number</button>
+                        <button type="button" id="tab-upload" class="tab-button whitespace-nowrap py-3 px-2 sm:px-4 md:px-6 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium flex-shrink-0">Upload Certificate</button>
+                        <button type="button" id="tab-qr" class="tab-button whitespace-nowrap py-3 px-2 sm:px-4 md:px-6 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium flex-shrink-0">Scan QR Code</button>
                     </div>
 
                     <!-- Tab Contents -->
@@ -33,11 +33,11 @@
                     <div id="content-certificate" class="tab-content">
                         <div class="bg-gray-100 p-4 rounded-lg flex items-start mb-6">
                             <div class="bg-blue-500 rounded-full p-2 mr-3 flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="text-gray-700">Please enter your certificate number to verify its authenticity.</p>
+                            <p class="text-sm sm:text-base text-gray-700">Please enter your certificate number to verify its authenticity.</p>
                         </div>
 
                         <!-- Certificate Number Field -->
@@ -55,11 +55,11 @@
                     <div id="content-upload" class="tab-content hidden">
                         <div class="bg-gray-100 p-4 rounded-lg flex items-start mb-6">
                             <div class="bg-blue-500 rounded-full p-2 mr-3 flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="text-gray-700">Upload your certificate document to verify its authenticity.</p>
+                            <p class="text-sm sm:text-base text-gray-700">Upload your certificate document to verify its authenticity.</p>
                         </div>
 
                         <!-- Upload Field -->
@@ -76,24 +76,24 @@
                     <div id="content-qr" class="tab-content hidden">
                         <div class="bg-gray-100 p-4 rounded-lg flex items-start mb-6">
                             <div class="bg-blue-500 rounded-full p-2 mr-3 flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <p class="text-gray-700">Scan the QR code on your certificate to verify its authenticity.</p>
+                            <p class="text-sm sm:text-base text-gray-700">Scan the QR code on your certificate to verify its authenticity.</p>
                         </div>
 
                         <!-- QR Code Scanner -->
                         <div class="mb-6 flex justify-center">
                             <div class="border border-gray-300 rounded-lg p-4">
                                 <img width="150" height="150" src="barcode.png" alt="QR Code Scanner" class="mx-auto">
-                                <p class="text-center mt-2 text-sm text-gray-600">Align QR code within frame</p>
+                                <p class="text-center mt-2 text-xs sm:text-sm text-gray-600">Align QR code within frame</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Terms and Conditions -->
-                    <div class="mt-6 flex items-center">
+                    <div class="mt-6 flex items-start sm:items-center">
                         <div class="flex">
                             <input 
                                 id="terms-checkbox" 
@@ -102,7 +102,7 @@
                                 class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
                         </div>
                         <div class="ms-3">
-                            <label for="terms-checkbox" class="dark:text-white">
+                            <label for="terms-checkbox" class="text-sm sm:text-base dark:text-white">
                                 I have read and agree to the website 
                                 <a class="text-blue-600 decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="../examples/html/signup.html">
                                     terms and conditions
@@ -150,6 +150,7 @@
                 <img class="w-28 mt-4 h-auto mx-auto mb-4" src="Happy Dance GIF by GETKICKBOX.gif" alt="Happy Dance Animation">
             </div>
         </div>
+        </div>
     </div>
 
     <script>
@@ -182,6 +183,19 @@
             });
         });
     </script>
+
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
 
     <script src="preline.js"></script>
     <script src="flowbite.js"></script>
