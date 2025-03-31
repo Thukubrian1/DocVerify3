@@ -125,6 +125,27 @@
         margin-bottom: 1rem;
     }
 </style>
+
+<!-- Add this CSS in the head section, after the existing styles -->
+<style>
+    /* Ensure dropdown appears above all other content */
+    .hs-dropdown-menu {
+      z-index: 100 !important;
+    }
+    
+    /* Make sure certificate is below the dropdown */
+    .certificate-border {
+      position: relative;
+      z-index: 1;
+    }
+  
+    /* Ensure the header has proper stacking context */
+    header {
+      position: relative;
+      z-index: 60; /* Higher than the certificate but lower than the dropdown menu */
+    }
+  </style>
+  
 </head>
 
 <body class="bg-gray-50">
