@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request Form</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <!-- Preline JS -->
+    <link href="https://cdn.jsdelivr.net/npm/preline@1.0.0/dist/preline.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 p-4 sm:p-6">
+    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-4 sm:p-6">
+        <!-- Header with buttons -->
+        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
+            <div class="flex-1">
+                <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Service Request</h1>
+                <h2 class="text-base sm:text-lg font-semibold text-gray-700 mt-1">
+                    New Service request
+                    <span class="block text-sm font-normal text-gray-500">Provide client certificate details</span>
+                </h2>
+            </div>
+            <div class="flex gap-2 w-full sm:w-auto">
+                <button type="button" class="w-1/2 sm:w-auto px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-blue-500">
+                    Cancel
+                </button>
+                <button type="button" class="w-1/2 sm:w-auto px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">
+                    Send Request
+                </button>
+            </div>
+        </div>
+
+        <hr class="my-4 sm:my-6 border-gray-200">
+
+        <!-- Request Type Section -->
+        <div class="mb-6">
+            <h3 class="font-medium mb-4 text-sm sm:text-base">Request type</h3>
+            <div class="flex flex-col space-y-2">
+                <div class="flex items-center">
+                    <input type="radio" id="new-cert" name="request-type" class="w-4 h-4 text-blue-600">
+                    <label for="new-cert" class="ms-2 text-sm">New certificate</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="radio" id="verify-cert" name="request-type" checked class="w-4 h-4 text-blue-600">
+                    <label for="verify-cert" class="ms-2 text-sm">Verify certificate</label>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4 sm:my-6 border-gray-200">
+
+        <!-- Certificate Number Section -->
+        <div class="mb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Certificate number</label>
+                    <input type="text" value="CERT-3066" 
+                           class="w-full p-2 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Invoice ID</label>
+                    <input type="text" value="#INV134" 
+                           class="w-full p-2 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4 sm:my-6 border-gray-200">
+
+        <!-- Client Section -->
+        <div class="mb-6">
+            <label class="block font-medium mb-4 text-sm sm:text-base">Client</label>
+            <input type="text" value="JOHN DOE" 
+                   class="w-full p-2 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <hr class="my-4 sm:my-6 border-gray-200">
+
+        <!-- Notes Section -->
+        <div>
+            <label class="block font-medium mb-4 text-sm sm:text-base">Notes</label>
+            <div class="relative">
+                <textarea id="notes" rows="3" maxlength="40" 
+                    class="w-full p-2 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="A quick short description.">JOHN JUMA did not receive his certificate</textarea>
+                <div class="text-xs text-gray-500 text-end mt-1">40 characters left</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@1.0.0/dist/preline.min.js"></script>
+</body>
+</html>

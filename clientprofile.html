@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocVerif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="white">
+    <div class="flex">
+        <!-- Left Navigation Menu -->
+        <div class="w-64 bg-gray border-r border-gray-200 h-screen p-5" >
+            <div class="mb-10">
+                <h2 class="text-2xl font-bold text-black mb-10">DocVerif</h2>
+                
+                <nav>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="certificate.html" class="flex items-center p-2 text-gray-700 rounded-lg group">
+                                <svg class="w-5 h-5 mr-3 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="wallet.html" class="flex items-center p-2 text-gray-700  rounded-lg group">
+                                <svg class="w-5 h-5 mr-3 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
+                                    <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
+                                </svg>
+                                Wallet
+                            </a>
+                        </li>
+                        <li>
+                            <a href="clientprofile.html" class="flex items-center p-2 text-gray-700 rounded-lg group">
+                                <svg class="w-5 h-5 mr-3 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"/>
+                                </svg>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="notifications.html" class="flex items-center p-2 text-gray-700 rounded-lg group">
+                                <svg class="w-5 h-5 mr-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 text-white">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                                </svg>
+                                Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.html" class="flex items-center p-2 text-gray-700 rounded-lg group">
+                                <svg class="w-5 h-5 mr-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                                </svg>
+                                Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+    <!-- Content -->
+    <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
+
+
+        <!-- Header -->
+        <div class="px-0 py-0 grid gap-3 md:flex md:justify-between md:items-center">
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-700">
+                    Settings
+                </h2>
+
+            </div>
+
+        </div>
+        <!-- End Header -->
+
+
+
+        <!-- tabs -->
+        <div>
+            <div class=" pt-4 border-b border-gray-200 dark:border-gray-700">
+                <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
+                    <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500 active"
+                        id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1" role="tab">
+                        Profile
+                    </button>
+                    <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500"
+                        id="tabs-with-underline-item-2" data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2" role="tab">
+                        Password
+                    </button>
+                    <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500"
+                        id="tabs-with-underline-item-3" data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3" role="tab">
+                        Insurer
+                    </button>
+                    <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500"
+                        id="tabs-with-underline-item-4" data-hs-tab="#tabs-with-underline-4" aria-controls="tabs-with-underline-3" role="tab">
+                        Notifications
+                    </button>
+                    <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500"
+                        id="tabs-with-underline-item-5" data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-3" role="tab">
+                        Licenses
+                    </button>
+                </nav>
+            </div>
+
+            <div class="mt-3">
+                <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
+                    <!-- Profile Section -->
+
+                    <div class="mt-6">
+                        <p class="text-base font-bold text-gray-900">Profile</p>
+                        <p class="mt-1 text-sm font-medium text-gray-500">Update your profile</p>
+                    </div>
+
+                    <form action="#" method="POST" class="max-w-3xl mt-12">
+                        <div class="space-y-8">
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Profile Photo </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <div class="flex items-center space-x-6">
+                                        <img class="flex-shrink-0 object-cover w-12 h-12 rounded-lg" src="https://img.freepik.com/free-photo/happy-man-wearing-party-hat_23-2148757480.jpg?w=740" alt="" />
+                                        <button type="button" class="text-sm font-semibold text-gray-400 transition-all duration-200 bg-white rounded-md hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600">Remove</button>
+
+                                        <button type="button" class="text-sm font-semibold text-blue-600 transition-all duration-200 bg-white rounded-md hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> First & Last Name </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5">
+                                        <div>
+                                            <input type="text" name="" id="" placeholder="" value="Martian" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                        </div>
+
+                                        <div>
+                                            <input type="text" name="" id="" placeholder="" value="Otieno" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Email Address </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="email" name="" id="" placeholder="" value="a.martin@gmail.com" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Type </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <select class="block w-full py-3 pl-4 pr-10 border-gray-300 rounded-lg focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm">
+                                        <option>Individual</option>
+                                        <option>Agency</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 sm:mt-12">
+                            <button type="submit" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-500">
+                                Update
+                            </button>
+                        </div>
+                    </form>
+                    <!-- End Profile Section -->
+                </div>
+
+
+                <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
+                    <!--  Individual Table Section -->
+
+                    <div class="mt-6">
+                        <p class="text-base font-bold text-gray-900">Change password</p>
+                        <p class="mt-1 text-sm font-medium text-gray-500">Update your password</p>
+                    </div>
+
+                    <form action="#" method="POST" class="max-w-3xl mt-12">
+                        <div class="space-y-8">
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Old Password </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="password" name="" id="" placeholder="" value="12345678" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> New Password </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="password" name="" id="" placeholder="" value="12345678" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Confirm New Password </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="password" name="" id="" placeholder="" value="12345678" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-6 sm:mt-12">
+                            <button type="submit" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-500">
+                                Update
+                            </button>
+                        </div>
+                    </form>
+                    <!-- End  Individual Table Section -->
+                </div>
+
+                <div id="tabs-with-underline-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                    <!--  Pass Table Section -->
+                    <div class="mt-8 overflow-hidden bg-white border border-gray-200 rounded-xl">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-base font-bold text-gray-900">Synced insurers</p>
+                                    <p class="mt-1 text-sm font-medium text-gray-500">Insurer you are onboarded on</p>
+                                </div>
+
+
+                                <div>
+                                    <div class="text-center">
+                                        <button type="button" class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-overlay="#e">
+                                            Join Another Insurer
+                                        </button>
+                                    </div>
+
+                                    <div id="e" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
+                                        <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+                                            <div class="relative flex flex-col bg-white border shadow-sm rounded-xl overflow-hidden dark:bg-gray-800 dark:border-gray-700">
+                                                <div class="absolute top-2 end-2">
+                                                    <button type="button" class="flex justify-center items-center size-7 text-sm font-semibold rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-transparent dark:hover:bg-gray-700"
+                                                        data-hs-overlay="#e">
+                                                <span class="sr-only">Close</span>
+                                                <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                              </button>
+                                                </div>
+
+                                                <div class="p-4 sm:p-10 overflow-y-auto">
+                                                    <div class="mb-6 text-center">
+                                                        <h3 class="mb-2 text-xl font-bold text-gray-800 dark:text-gray-200">
+                                                            Join another insurer
+                                                        </h3>
+                                                        <p class="text-gray-500">
+                                                            Enter OTP sent to *******72 to sync portfolio
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="space-y-4">
+
+
+                                                        <!-- otp -->
+                                                        <div class="flex space-x-3 justify-center" data-hs-pin-input="">
+                                                            <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                                                data-hs-pin-input-item="" autofocus="">
+                                                            <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                                                data-hs-pin-input-item="">
+                                                            <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                                                data-hs-pin-input-item="">
+                                                            <input type="text" class="block w-[38px] text-center border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                                                data-hs-pin-input-item="">
+                                                        </div>
+                                                        <!-- Otp Card -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="flex justify-end items-center gap-x-2 py-3 px-4 bg-gray-50 border-t dark:bg-gray-800 dark:border-gray-700">
+                                                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800"
+                                                        data-hs-overlay="#hs-upload">
+                                                Cancel
+                                              </button>
+                                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-overlay="#hs-sync">
+                                                Continue
+                                              </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- sync pop Card -->
+                                    <div id="hs-sync" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
+                                        <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+                                            <div class="relative flex flex-col bg-white border shadow-sm rounded-xl overflow-hidden dark:bg-gray-800 dark:border-gray-700">
+                                                <div class="absolute top-2 end-2">
+                                                    <button type="button" class="flex justify-center items-center size-7 text-sm font-semibold rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-transparent dark:hover:bg-gray-700"
+                                                        data-hs-overlay="#hs-sync">
+                                                <span class="sr-only">Close</span>
+                                                <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                              </button>
+                                                </div>
+
+                                                <div class="p-4 sm:p-10 overflow-y-auto">
+                                                    <div class="mb-6 text-center">
+                                                        <h3 class="mb-2 text-xl font-bold text-gray-800 dark:text-gray-200">
+                                                            Sync portfolio
+                                                        </h3>
+                                                        <p class="text-gray-500">
+                                                            Confirm to proceed
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="space-y-4">
+
+
+                                                        <!-- Card -->
+                                                        <div class="flex space-x-3 justify-center" data-hs-pin-input="">
+                                                            Would you like to Sync My insurer3?
+                                                        </div>
+                                                        <!-- End Card -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="flex justify-end items-center gap-x-2 py-3 px-4 bg-gray-50 border-t dark:bg-gray-800 dark:border-gray-700">
+                                                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800"
+                                                        data-hs-overlay="#hs-sync">
+                                                Not now
+                                              </button>
+                                                    <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="profile.html">
+                                                Yes,confirm
+                                              </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End sync pop Card -->
+                                </div>
+                            </div>
+
+                            <div class="flow-root mt-8">
+                                <div class="-my-5 divide-y divide-gray-100">
+                                    <div class="py-5">
+                                        <div class="flex items-center">
+                                            <div class="relative flex-shrink-0">
+                                                <img class="object-cover w-10 h-10 rounded-full" src="https://landingfoliocom.imgix.net/store/collection/clarity-dashboard/images/previews/settings/1/rareblocks-logo.png" alt="" />
+                                            </div>
+
+                                            <div class="ml-4">
+                                                <p class="text-sm font-bold text-gray-900">My Insurer1</p>
+                                                <p class="mt-1 text-sm font-medium text-gray-500">1 week ago</p>
+                                            </div>
+
+                                            <div class="ml-auto">
+                                                <a href="#" title="" class="text-sm font-medium text-gray-400 transition-all duration-200 hover:text-gray-900"> Leave </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="py-5">
+                                        <div class="flex items-center">
+                                            <div class="relative flex-shrink-0">
+                                                <img class="object-cover w-10 h-10 rounded-full" src="https://landingfoliocom.imgix.net/store/collection/clarity-dashboard/images/previews/settings/1/astrona-logo.png" alt="" />
+                                            </div>
+
+                                            <div class="ml-4">
+                                                <p class="text-sm font-bold text-gray-900">My insurer2</p>
+                                                <p class="mt-1 text-sm font-medium text-gray-500">3s month ago</p>
+                                            </div>
+
+                                            <div class="ml-auto">
+                                                <a href="#" title="" class="text-sm font-medium text-gray-400 transition-all duration-200 hover:text-gray-900"> Leave </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End  Pass  Section -->
+            </div>
+
+            <div id="tabs-with-underline-4" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                <!--  Notification  Section -->
+                <!--  Pass Table Section -->
+                <div class="mt-8 overflow-hidden bg-white border border-gray-200 rounded-xl">
+                    <div class="px-4 py-5 sm:p-6">
+                        <div class="sm:flex sm:items-center sm:justify-between">
+                            <div>
+                                <p class="text-base font-bold text-gray-900">Recent notifications</p>
+                                <p class="mt-1 text-sm font-medium text-gray-500">Leverage your mobile app for improved business notifications.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flow-root mt-8">
+                            <div class="-my-5 divide-y divide-gray-100">
+                                <div class="py-5">
+                                    <div class="flex items-center">
+                                        <div class="relative flex-shrink-0">
+                                            <img class="object-cover w-10 h-10 rounded-full" src="https://landingfoliocom.imgix.net/store/collection/clarity-dashboard/images/previews/settings/1/rareblocks-logo.png" alt="" />
+                                        </div>
+
+                                        <div class="ml-4">
+                                            <p class="text-sm font-bold text-blue-600">Your policy expires as at 27-Apr-2025</p>
+                                            <p class="mt-1 text-sm font-medium text-gray-500">10:31 am | 24-Mar-2025</p>
+                                        </div>
+
+                                        <div class="ml-auto">
+                                            <a href="renewals_details.html" title="" class="text-sm font-medium text-blue-600 transition-all duration-200 hover:text-blue-600"> Renew </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="py-5">
+                                    <div class="flex items-center">
+                                        <div class="relative flex-shrink-0">
+                                            <img class="object-cover w-10 h-10 rounded-full" src="https://landingfoliocom.imgix.net/store/collection/clarity-dashboard/images/previews/settings/1/astrona-logo.png" alt="" />
+                                        </div>
+
+                                        <div class="ml-4">
+                                            <p class="text-sm font-bold text-gray-900">You have a 10 pending renewal invites as 27-Apr-2025</p>
+                                            <p class="mt-1 text-sm font-medium text-gray-500">10:30 am | 24-Mar-2025</p>
+                                        </div>
+
+                                        <div class="ml-auto">
+                                            <a href="All_Trans.html" title="" class="text-sm font-medium text-gray-600 transition-all duration-200 hover:text-blue-600"> View </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End  Notification  Section -->
+            </div>
+            <div id="tabs-with-underline-5" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                <!--  Notification  Section -->
+
+                <div class="mt-6">
+                    <p class="text-base font-bold text-gray-900">Renew license</p>
+                    <p class="mt-1 text-sm font-medium text-gray-500">Update your annual license</p>
+                </div>
+
+                <form action="#" method="POST" class="max-w-3xl mt-12">
+                    <div class="space-y-8">
+
+
+
+                        <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                            <div class="sm:mt-px sm:pt-2">
+                                <label for="" class="block text-sm font-bold text-gray-900"> IRA license </label>
+
+                            </div>
+                            <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                <div class="relative flex">
+                                    <div class="inline-flex items-center px-3 text-gray-900 border border-r-0 border-gray-300 rounded-l-lg bg-gray-50 sm:text-sm">Active</div>
+
+                                    <input type="text" name="" id="" placeholder="" value="IRA1234/24" class="border flex-1 block w-full min-w-0 px-4 py-3 placeholder-gray-500 border-gray-300 rounded-none rounded-r-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm caret-indigo-600"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-6 sm:mt-12">
+                        <a href="clientprofile.html" button type="submit" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 bg-gray-200 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-500">
+                            Update
+                        </button></a>
+                    </div>
+                </form>
+                <!-- End  Notification  Section -->
+            </div>
+
+        </div>
+    </div>
+    <!-- end tabs -->
+    </div>
+
+
+    <!-- ========== END MAIN CONTENT ========== -->
+
+    <script src="preline.js"></script>
+    <script src="flowbite.js"></script>
+</body>
+</html>

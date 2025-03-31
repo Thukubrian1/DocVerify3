@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocVerif</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white-translucent">
+
+    <style>
+        /* Custom styles for the app */
+        
+        body {
+            padding-bottom: 4rem;
+            /* Space for the bottom navigation */
+        }
+        
+        .desktop-drawer {
+            width: 16rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-content {
+            transition: margin-left 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+            .main-content.drawer-open {
+                margin-left: 16rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Desktop Navigation Drawer - Hidden on mobile -->
+    <div id="desktop-drawer" class="desktop-drawer fixed top-0 left-0 h-full w-64 bg-blue-800 shadow-lg transform transition-transform duration-300 z-40 hidden md:block border-r border-gray-200">
+        <div class="p-5 border-b border-gray-200">
+            <h2 class="text-xl font-semibold text-blue-800">DocVerif</h2>
+        </div>
+        <nav class="mt-5">
+            <ul>
+                <li class="mb-1">
+                    <a href="dash.html" class="flex items-center p-3 text-gray-700 hover:bg-gray-100 rounded-lg mx-2">
+                        <svg class="w-5 h-5 mr-3 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="wallet.html" class="flex items-center p-3 text-gray-700 hover:bg-gray-100 rounded-lg mx-2">
+                        <svg class="w-5 h-5 mr-3 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
+                            <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
+                        </svg>
+                        <span>Wallet</span>
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="notifications.html" class="flex items-center p-3 text-gray-700 hover:bg-gray-100 rounded-lg mx-2">
+                        <svg class="w-5 h-5 mr-3 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a6 6 0 0 0-6 6v3c0 .75-.27 1.48-.76 2.05L2 15h16l-1.24-1.95A3.007 3.007 0 0 1 16 11V8a6 6 0 0 0-6-6Zm0 16c1.1 0 2-.9 2-2H8c0 1.1.9 2 2 2Z"/>
+                        </svg>
+                        <span>Notifications</span>
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="profile.html" class="flex items-center p-3 text-gray-700 hover:bg-gray-100 rounded-lg mx-2">
+                        <svg class="w-5 h-5 mr-3 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+                        </svg>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Desktop Navigation Drawer - Hidden on mobile -->
+    <div id="main-content" class="main-content">
+        <!-- ========== HEADER ========== -->
+        <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-30 w-full bg-blue-700 border-b text-sm py-2.5 sm:py-4">
+            <nav class="max-w-7xl flex basis-full items-center w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+                <div class="me-5 md:me-8">
+                    <a class="flex-none text-white text-xl font-semibold" href="#" aria-label="Brand">DocVerif</a>
+                </div>
+
+                <div class="w-full flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+                    <!-- Toggle drawer on desktop -->
+                    <button id="drawer-toggle" class="p-2 rounded-md hover:bg-blue-600 hidden md:block">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <nav class="flex basis-full items-center w-full mx-auto px-4 sm:px-6 md:px-8" aria-label="Global">
+                <div class="me-5 lg:me-0 lg:hidden">
+                    <a class="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">DocVerif</a>
+                </div>
+    
+                <div class="w-full flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+                    <div class="sm:hidden">
+                        <button type="button" class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" /></svg>
+                        </button>
+                    </div>
+    
+                    <div class="hidden sm:block">
+                        <label for="icon" class="sr-only">Search</label>
+                        <div class="relative">
+                        </div>
+                    </div>
+    
+   
+              
+    
+                        <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
+                            <button id="hs-dropdown-with-header" type="button" class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                                <img class="inline-block size-[38px] rounded-full ring-2 ring-white dark:ring-gray-800"
+                                    src="https://img.freepik.com/free-photo/happy-man-wearing-party-hat_23-2148757480.jpg?w=740"
+                                    alt="Image Description">
+                            </button>
+    
+                            <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700" aria-labelledby="hs-dropdown-with-header">
+                                <div class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-gray-700">
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Signed in as</p>
+                                    <p class="text-sm font-medium text-gray-800 dark:text-gray-300">ray@DocVerif.insure</p>
+                                </div>
+                                <div class="mt-2 py-2 first:pt-0 last:pb-0">
+                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="notifications.html">
+                                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg> Notifications
+                                    </a>
+                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="profile.html">
+                                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                            <circle cx="9" cy="7" r="4" />
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg> My Account
+                                    </a>
+                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="login.html">
+                                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                                        </svg>Log Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+        <!-- end Desktop Top Navigation Drawer -->
+        <!-- ========== END HEADER ========== -->
+
+       <!-- Content -->
+    <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
+
+
+        <!-- Header -->
+        <div class="px-0 py-0 grid gap-3 md:flex md:justify-between md:items-center">
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                    Settings
+                </h2>
+
+            </div>
+
+        </div>
+        <!-- End Header -->
+
+
+
+        <!-- tabs -->
+        <div>
+            <div class=" pt-4 border-b border-gray-200 dark:border-gray-700">
+                <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
+                    <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500 active"
+                        id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1" role="tab">
+                        Profile
+                    </button>
+                    <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500"
+                        id="tabs-with-underline-item-2" data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2" role="tab">
+                        Password
+                     </button>
+                     <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500"
+                     id="tabs-with-underline-item-3" data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3" role="tab">
+                     Payment
+                  </button>
+                </nav>
+            </div>
+
+            <div class="mt-3">
+                <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
+                    <!-- Profile Section -->
+
+                    <div class="mt-6">
+                        <p class="text-base font-bold text-gray-900">Profile</p>
+                        <p class="mt-1 text-sm font-medium text-gray-500">Update your profile</p>
+                    </div>
+
+                    <form action="#" method="POST" class="max-w-3xl mt-12">
+                        <div class="space-y-8">
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Profile Photo </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <div class="flex items-center space-x-6">
+                                        <img class="flex-shrink-0 object-cover w-12 h-12 rounded-lg" src="https://img.freepik.com/free-photo/happy-man-wearing-party-hat_23-2148757480.jpg?w=740" alt="" />
+                                        <button type="button" class="text-sm font-semibold text-gray-400 transition-all duration-200 bg-white rounded-md hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600">Remove</button>
+
+                                        <button type="button" class="text-sm font-semibold text-blue-600 transition-all duration-200 bg-white rounded-md hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> First & Last Name </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5">
+                                        <div>
+                                            <input type="text" name="" id="" placeholder="" value="Martian" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                        </div>
+
+                                        <div>
+                                            <input type="text" name="" id="" placeholder="" value="Otieno" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Email Address </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="email" name="" id="" placeholder="" value="a.martin@gmail.com" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2">Account Type </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <select class="block w-full py-3 pl-4 pr-10 border-gray-300 rounded-lg focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm">
+                                        <option>Individual</option>
+                                        <option>Business</option>
+                                    
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2">Documents</label>
+                        
+                                <div data-hs-file-upload='{
+                                    "url": "/upload",
+                                    "maxFiles": 1,
+                                    "singleton": true
+                                  }'>
+                                    <template data-hs-file-upload-preview="">
+                                      <div class="flex items-center w-full">
+                                        <span class="grow-0 overflow-hidden truncate" data-hs-file-upload-file-name=""></span>
+                                        <span class="grow-0">.</span>
+                                        <span class="grow-0" data-hs-file-upload-file-ext=""></span>
+                                
+                                    </template>
+            
+                                    <button type="button" class="relative flex w-full border overflow-hidden border-gray-200 shadow-2xs rounded-lg text-sm focus:outline-hidden focus:z-10 focus:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:border-neutral-600">
+                                      <span class="h-full py-3 px-4 bg-gray-100 text-nowrap dark:bg-neutral-800">KRA PIN</span>
+                                      <span class="group grow flex overflow-hidden h-full py-3 px-4" data-hs-file-upload-previews="">
+                                        <span class="group-has-[div]:hidden">No Chosen File</span>
+                                      </span>
+                                      <span class="absolute top-0 left-0 w-full h-full" data-hs-file-upload-trigger=""></span>
+                                    </button>
+                               
+                                <br>
+                                <div data-hs-file-upload='{
+                                    "url": "/upload",
+                                    "maxFiles": 1,
+                                    "singleton": true
+                                  }'>
+                                    <template data-hs-file-upload-preview="">
+                                      <div class="flex items-center w-full">
+                                        <span class="grow-0 overflow-hidden truncate" data-hs-file-upload-file-name=""></span>
+                                        <span class="grow-0">.</span>
+                                        <span class="grow-0" data-hs-file-upload-file-ext=""></span>
+                                      </div>
+                                    </template>
+            
+                                    <button type="button" class="relative flex w-full border overflow-hidden border-gray-200 shadow-2xs rounded-lg text-sm focus:outline-hidden focus:z-10 focus:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:border-neutral-600">
+                                      <span class="h-full py-3 px-4 bg-gray-100 text-nowrap dark:bg-neutral-800">ID/Passport</span>
+                                      <span class="group grow flex overflow-hidden h-full py-3 px-4" data-hs-file-upload-previews="">
+                                        <span class="group-has-[div]:hidden">No Chosen File</span>
+                                      </span>
+                                      <span class="absolute top-0 left-0 w-full h-full" data-hs-file-upload-trigger=""></span>
+                                    </button>
+                                </div>
+                                <br>
+                                <div data-hs-file-upload='{
+                                    "url": "/upload",
+                                    "maxFiles": 1,
+                                    "singleton": true
+                                  }'>
+                                    <template data-hs-file-upload-preview="">
+                                      <div class="flex items-center w-full">
+                                        <span class="grow-0 overflow-hidden truncate" data-hs-file-upload-file-name=""></span>
+                                        <span class="grow-0">.</span>
+                                        <span class="grow-0" data-hs-file-upload-file-ext=""></span>
+                                      </div>
+                                    </template>
+            
+                                    <button type="button" class="relative flex w-full border overflow-hidden border-gray-200 shadow-2xs rounded-lg text-sm focus:outline-hidden focus:z-10 focus:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:border-neutral-600">
+                                      <span class="h-full py-3 px-4 bg-gray-100 text-nowrap dark:bg-neutral-800"> C12</span>
+                                      <span class="group grow flex overflow-hidden h-full py-3 px-4" data-hs-file-upload-previews="">
+                                        <span class="group-has-[div]:hidden">No Chosen File</span>
+                                      </span>
+                                      <span class="absolute top-0 left-0 w-full h-full" data-hs-file-upload-trigger=""></span>
+                                    </button>
+                 
+                                </div>            
+                                </div>
+                                </div>
+                            <div class="mt-6 sm:mt-12">
+                                <a href="profile.html" button class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-500">
+                                    Update
+                                </button></a>
+                            </div>
+                        </div> 
+                    </form>
+                    <!-- End Profile Section -->
+                </div>
+
+
+                <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
+                    <!--  Individual Table Section -->
+
+                    <div class="mt-6">
+                        <p class="text-base font-bold text-gray-900">Change password</p>
+                        <p class="mt-1 text-sm font-medium text-gray-500">Update your password</p>
+                    </div>
+
+                    <form action="#" method="POST" class="max-w-3xl mt-12">
+                        <div class="space-y-8">
+
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Old Password </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="password" name="" id="" placeholder="" value="12345678" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> New Password </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="password" name="" id="" placeholder="" value="12345678" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+                            <div class="sm:grid sm:grid-cols-3 sm:gap-5 sm:items-start">
+                                <label for="" class="block text-sm font-bold text-gray-900 sm:mt-px sm:pt-2"> Confirm New Password </label>
+                                <div class="mt-2 sm:mt-0 sm:col-span-2">
+                                    <input type="password" name="" id="" placeholder="" value="12345678" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-blue-600 focus:border-blue-600 sm:text-sm caret-blue-600" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-6 sm:mt-12">
+                            <a href="profile.html" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-500">
+                                Update
+                            </button></a>
+                        </div>
+                    </form>
+                    <!-- End  Individual Table Section -->
+                </div>
+
+                
+                <div id="tabs-with-underline-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                    <!--  Individual Table Section -->
+
+                     <!-- Content Area -->
+                     <div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-6 mx-auto">
+       
+                <div class="container mx-auto px-4 py-8">
+                    <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+                        <!-- Navigation Tabs -->
+                        <div class="border-b border-gray-200">
+                            <nav class="flex space-x-4 p-4">
+                                <button data-tab="payment-methods" class="tab-button text-blue-600 border-b-2 border-blue-600 pb-2 px-4 font-semibold">
+                                    Payment Methods
+                                </button>
+                                <button data-tab="payment-history" class="tab-button text-gray-500 pb-2 px-4">
+                                    Payment History
+                                </button>
+                            </nav>
+                        </div>
+            
+                        <!-- Payment Methods Section -->
+                        <div id="payment-methods-section" class="p-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-2xl font-bold">My Payment Methods</h2>
+                                <button id="add-payment-btn" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-500">
+                                    + Add New Payment Method
+                                </button>
+                            </div>
+            
+                            <!-- Payment Methods Container -->
+                            <div id="payment-methods-container" class="space-y-4">
+                                <!-- Card Details Section -->
+                                <div class="bg-white shadow-md rounded-lg p-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-xl font-semibold">Card Details</h3>
+                                        <div class="flex space-x-2">
+                                            <button id="edit-card-details-btn" class="text-blue-600 hover:bg-blue-100 p-2 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                                </svg>
+                                            </button>
+                                            <button id="delete-card-btn" class="text-red-600 hover:bg-red-100 p-2 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                            <button id="report-stolen-btn" class="text-yellow-600 hover:bg-yellow-100 p-2 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11a1 1 0 11-2 0v-3a1 1 0 112 0v3zm-1-9a1 1 0 011 1v2a1 1 0 11-2 0V5a1 1 0 011-1z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <p class="text-gray-600">Card Type</p>
+                                            <p class="font-semibold">Mastercard</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600">Card Number</p>
+                                            <p class="font-semibold">••••  8080</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600">Expiry Date</p>
+                                            <p class="font-semibold">12/24</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600">CVV</p>
+                                            <p class="font-semibold">•••</p>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <!-- Payment Methods List -->
+                                <div class="bg-white shadow-md rounded-lg p-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-xl font-semibold">Other Payment Methods</h3>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div class="flex justify-between items-center border-b pb-4">
+                                            <div class="flex items-center space-x-4">
+                                                <img src="/api/placeholder/50/50" alt="M-Pesa" class="h-10 w-10 bg-green-500 rounded-full">
+                                                <div>
+                                                    <p class="font-semibold">M-Pesa</p>
+                                                    <p class="text-sm text-gray-500">07XX XXX XXX</p>
+                                                </div>
+                                            </div>
+                                            <button class="text-red-600 hover:bg-red-100 p-2 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="flex justify-between items-center border-b pb-4">
+                                            <div class="flex items-center space-x-4">
+                                                <img src="/api/placeholder/50/50" alt="Bank" class="h-10 w-10 bg-indigo-500 rounded-full">
+                                                <div>
+                                                    <p class="font-semibold">Bank Account</p>
+                                                    <p class="text-sm text-gray-500">XX1234</p>
+                                                </div>
+                                            </div>
+                                            <button class="text-red-600 hover:bg-red-100 p-2 rounded">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Payment History Section -->
+                        <div id="payment-history-section" class="p-6 hidden">
+                            <h2 class="text-2xl font-bold mb-6">Payment History</h2>
+                            <div class="overflow-x-auto">
+                                <table class="w-full bg-white shadow-md rounded-lg">
+                                    <thead>
+                                        <tr class="bg-gray-100 text-left">
+                                            <th class="p-3">Date</th>
+                                            <th class="p-3">Method</th>
+                                            <th class="p-3">Amount</th>
+                                            <th class="p-3">Status</th>
+                                            <th class="p-3">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b hover:bg-gray-50">
+                                            <td class="p-3">March 15, 2025</td>
+                                            <td class="p-3">Mastercard ••••8080</td>
+                                            <td class="p-3">KES 5,000</td>
+                                            <td class="p-3">
+                                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Completed</span>
+                                            </td>
+                                            <td class="p-3">
+                                                <button class="text-blue-600 hover:underline">View Details</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b hover:bg-gray-50">
+                                            <td class="p-3">February 28, 2025</td>
+                                            <td class="p-3">M-Pesa</td>
+                                            <td class="p-3">KES 3,500</td>
+                                            <td class="p-3">
+                                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Completed</span>
+                                            </td>
+                                            <td class="p-3">
+                                                <button class="text-blue-600 hover:underline">View Details</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+            
+                        <!-- Add Payment Method Modal -->
+                        <div id="add-payment-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+                            <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h2 class="text-2xl font-bold">Add New Payment Method</h2>
+                                    <button id="close-payment-modal" class="text-gray-600 hover:text-gray-900">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+            
+                                <div id="payment-method-selector">
+                                    <p class="mb-4 text-gray-600">Select the type of payment method you want to add:</p>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <button data-method="credit-card" class="payment-method-select bg-blue-100 hover:bg-blue-200 p-4 rounded-lg flex flex-col items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                                                <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zm-6 4a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                            </svg>
+                                            Credit/Debit Card
+                                        </button>
+                                        <button data-method="mpesa" class="payment-method-select bg-green-100 hover:bg-green-200 p-4 rounded-lg flex flex-col items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M5 2a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H5zm9 4a1 1 0 10-2 0v6a1 1 0 102 0V6zm-6 2a1 1 0 10-2 0v4a1 1 0 102 0V8zm4-1a1 1 0 011 1v2a1 1 0 11-2 0V8a1 1 0 011-1z" clip-rule="evenodd" />
+                                            </svg>
+                                            M-Pesa
+                                        </button>
+                                        <button data-method="bank" class="payment-method-select bg-indigo-100 hover:bg-indigo-200 p-4 rounded-lg flex flex-col items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                                                <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zm-4 4a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                            </svg>
+                                            Bank Account
+                                        </button>
+                                        <button data-method="cheque" class="payment-method-select bg-yellow-100 hover:bg-yellow-200 p-4 rounded-lg flex flex-col items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                                            </svg>
+                                            Cheque
+                                        </button>
+                                    </div>
+                                </div>
+            
+                                <!-- Credit Card Form -->
+                                <div id="credit-card-form" class="hidden mt-4">
+                                    <h3 class="text-xl font-semibold mb-4">Credit/Debit Card Details</h3>
+                                    <form>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Card Holder Name</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="John Doe">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Card Number</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="1234 5678 9012 3456">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-gray-700 mb-2">Expiry Date</label>
+                                                <input type="text" class="w-full p-2 border rounded" placeholder="MM/YY">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 mb-2">CVV</label>
+                                                <input type="text" class="w-full p-2 border rounded" placeholder="123">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 flex justify-end space-x-2">
+                                            <button type="button" id="cancel-credit-card" class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Cancel</button>
+                                            <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded">Add Card</button>
+                                        </div>
+                                    </form>
+                                </div>
+            
+                                <!-- M-Pesa Form -->
+                                <div id="mpesa-form" class="hidden mt-4">
+                                    <h3 class="text-xl font-semibold mb-4">M-Pesa Details</h3>
+                                    <form>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Phone Number</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="07XX XXX XXX">
+                                        </div>
+                                        <div class="mt-4 flex justify-end space-x-2">
+                                            <button type="button" id="cancel-mpesa" class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Cancel</button>
+                                            <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded">Add M-Pesa</button>
+                                        </div>
+                                    </form>
+                                </div>
+            
+                                <!-- Bank Account Form -->
+                                <div id="bank-form" class="hidden mt-4">
+                                    <h3 class="text-xl font-semibold mb-4">Bank Account Details</h3>
+                                    <form>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Bank Name</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="Enter Bank Name">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Account Number</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="Enter Account Number">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Account Name</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="Enter Account Name">
+                                        </div>
+                                        <div class="mt-4 flex justify-end space-x-2">
+                                            <button type="button" id="cancel-bank" class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Cancel</button>
+                                            <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded">Add Bank Account</button>
+                                        </div>
+                                    </form>
+                                </div>
+            
+                                <!-- Cheque Form -->
+                                <div id="cheque-form" class="hidden mt-4">
+                                    <h3 class="text-xl font-semibold mb-4">Cheque Details</h3>
+                                    <form>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Bank Name</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="Enter Bank Name">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Cheque Number</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="Enter Cheque Number">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="block text-gray-700 mb-2">Account Name</label>
+                                            <input type="text" class="w-full p-2 border rounded" placeholder="Enter Account Name">
+                                        </div>
+                                        <div class="mt-4 flex justify-end space-x-2">
+                                            <button type="button" id="cancel-cheque" class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Cancel</button>
+                                            <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded">Add Cheque</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        // Previous existing JavaScript code remains the same
+            
+                        // Add Payment Method Modal Functionality
+                        const addPaymentBtn = document.getElementById('add-payment-btn');
+                        const addPaymentModal = document.getElementById('add-payment-modal');
+                        const closePaymentModal = document.getElementById('close-payment-modal');
+                        const paymentMethodSelector = document.getElementById('payment-method-selector');
+                        const paymentMethodButtons = document.querySelectorAll('.payment-method-select');
+                        
+                        // Payment Method Forms
+                        const creditCardForm = document.getElementById('credit-card-form');
+                        const mpesaForm = document.getElementById('mpesa-form');
+                        const bankForm = document.getElementById('bank-form');
+                        const chequeForm = document.getElementById('cheque-form');
+            
+                        // Open Add Payment Modal
+                        addPaymentBtn.addEventListener('click', () => {
+                            addPaymentModal.classList.remove('hidden');
+                            paymentMethodSelector.classList.remove('hidden');
+                            
+                            // Hide all forms
+                            creditCardForm.classList.add('hidden');
+                            mpesaForm.classList.add('hidden');
+                            bankForm.classList.add('hidden');
+                            chequeForm.classList.add('hidden');
+                        });
+            
+                        // Close Add Payment Modal
+                        closePaymentModal.addEventListener('click', () => {
+                            addPaymentModal.classList.add('hidden');
+                        });
+            
+                        // Payment Method Selection
+                        paymentMethodButtons.forEach(button => {
+                            button.addEventListener('click', () => {
+                                const methodType = button.dataset.method;
+                                
+                                // Hide method selector
+                                paymentMethodSelector.classList.add('hidden');
+                                
+                                // Show corresponding form
+                                switch(methodType) {
+                                    case 'credit-card':
+                                        creditCardForm.classList.remove('hidden');
+                                        break;
+                                    case 'mpesa':
+                                        mpesaForm.classList.remove('hidden');
+                                        break;
+                                    case 'bank':
+                                        bankForm.classList.remove('hidden');
+                                        break;
+                                    case 'cheque':
+                                        chequeForm.classList.remove('hidden');
+                                        break;
+                                }
+                            });
+                        });
+            
+                        // Cancel buttons for each form
+                        document.getElementById('cancel-credit-card').addEventListener('click', () => {
+                            addPaymentModal.classList.add('hidden');
+                        });
+            
+                        document.getElementById('cancel-mpesa').addEventListener('click', () => {
+                            addPaymentModal.classList.add('hidden');
+                        });
+            
+                        document.getElementById('cancel-bank').addEventListener('click', () => {
+                            addPaymentModal.classList.add('hidden');
+                        });
+            
+                        document.getElementById('cancel-cheque').addEventListener('click', () => {
+                            addPaymentModal.classList.add('hidden');
+                        });
+                    });
+                </script>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Tab Switching
+                    document.querySelectorAll('.tab-button').forEach(button => {
+                        button.addEventListener('click', () => {
+                            // Remove active states from all tabs
+                            document.querySelectorAll('.tab-button').forEach(btn => {
+                                btn.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+                                btn.classList.add('text-gray-500');
+                            });
+            
+                            // Add active states to clicked tab
+                            button.classList.remove('text-gray-500');
+                            button.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+            
+                            // Toggle sections
+                            if (button.dataset.tab === 'payment-methods') {
+                                document.getElementById('payment-methods-section').classList.remove('hidden');
+                                document.getElementById('payment-history-section').classList.add('hidden');
+                            } else {
+                                document.getElementById('payment-methods-section').classList.add('hidden');
+                                document.getElementById('payment-history-section').classList.remove('hidden');
+                            }
+                        });
+                    });
+            
+                    // Edit Card Details Functionality
+                    const editCardDetailsBtn = document.getElementById('edit-card-details-btn');
+                    editCardDetailsBtn.addEventListener('click', () => {
+                        // Create a modal or inline edit form for card details
+                        alert('Edit Card Details functionality to be implemented');
+                    });
+            
+                    // Delete Card Functionality
+                    const deleteCardBtn = document.getElementById('delete-card-btn');
+                    deleteCardBtn.addEventListener('click', () => {
+                        const confirmDelete = confirm('Are you sure you want to delete this card?');
+                        if (confirmDelete) {
+                            // Implement card deletion logic
+                            alert('Card deleted');
+                        }
+                    });
+            
+                    // Report Stolen Card Functionality
+                    const reportStolenBtn = document.getElementById('report-stolen-btn');
+                    reportStolenBtn.addEventListener('click', () => {
+                        const confirmReport = confirm('Are you sure you want to report this card as stolen?');
+                        if (confirmReport) {
+                            // Implement report stolen logic
+                            alert('Card reported as stolen');
+                        }
+                    });
+            
+                    // Payment History View Details Functionality
+                    document.querySelectorAll('table tbody tr').forEach(row => {
+                        const viewDetailsBtn = row.querySelector('button');
+                        viewDetailsBtn.addEventListener('click', () => {
+                            // Implement view payment details logic
+                            const paymentDetails = row.querySelectorAll('td');
+                            alert(`Payment Details:\nDate: ${paymentDetails[0].textContent}\nMethod: ${paymentDetails[1].textContent}\nAmount: ${paymentDetails[2].textContent}\nStatus: ${paymentDetails[3].textContent}`);
+                        });
+                    });
+            
+                    // Delete Other Payment Methods
+                    document.querySelectorAll('.text-red-600').forEach(deleteBtn => {
+                        deleteBtn.addEventListener('click', (e) => {
+                            const paymentMethod = e.target.closest('div').querySelector('.font-semibold').textContent;
+                            const confirmDelete = confirm(`Are you sure you want to delete ${paymentMethod}?`);
+                            if (confirmDelete) {
+                                e.target.closest('div.border-b').remove();
+                            }
+                        });
+                    });
+                });
+            </script>
+            </div>
+        </div>
+        <!-- End Content Area -->
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <div id="mobile-nav" class="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 md:hidden">
+        <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Home</span>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
+                    <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Wallet</span>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Notifications</span>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Profile</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for PWA Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const drawerToggle = document.getElementById('drawer-toggle');
+            const drawer = document.getElementById('desktop-drawer');
+            const mainContent = document.getElementById('main-content');
+            let isDrawerOpen = false;
+
+            // Set initial state
+            drawer.classList.add('-translate-x-full');
+
+            // Toggle drawer
+            drawerToggle.addEventListener('click', function() {
+                isDrawerOpen = !isDrawerOpen;
+
+                if (isDrawerOpen) {
+                    drawer.classList.remove('-translate-x-full');
+                    drawer.classList.add('translate-x-0');
+                    mainContent.classList.add('drawer-open');
+                } else {
+                    drawer.classList.add('-translate-x-full');
+                    drawer.classList.remove('translate-x-0');
+                    mainContent.classList.remove('drawer-open');
+                }
+            });
+
+            // Handle resize
+            window.addEventListener('resize', function() {
+                // Reset drawer on mobile view
+                if (window.innerWidth < 768) {
+                    drawer.classList.add('-translate-x-full');
+                    drawer.classList.remove('translate-x-0');
+                    mainContent.classList.remove('drawer-open');
+                    isDrawerOpen = false;
+                }
+            });
+
+            // Register Service Worker for PWA
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        });
+    </script>
+                    <!-- End  Individual Table Section -->
+                </div>
+
+
+        </div>
+    </div>
+    <!-- end tabs -->
+    </div>
+
+
+    <!-- ========== END MAIN CONTENT ========== -->
+
+            </div>
+        </div>
+        <!-- End Content Area -->
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <div id="mobile-nav" class="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 md:hidden">
+        <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Home</span>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
+                    <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Wallet</span>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Notifications</span>
+            </button>
+            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                <svg class="w-5 h-5 mb-2 text-gray-500 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+                </svg>
+                <span class="text-sm text-gray-500 group-hover:text-blue-600">Profile</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for PWA Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const drawerToggle = document.getElementById('drawer-toggle');
+            const drawer = document.getElementById('desktop-drawer');
+            const mainContent = document.getElementById('main-content');
+            let isDrawerOpen = false;
+
+            // Set initial state
+            drawer.classList.add('-translate-x-full');
+
+            // Toggle drawer
+            drawerToggle.addEventListener('click', function() {
+                isDrawerOpen = !isDrawerOpen;
+
+                if (isDrawerOpen) {
+                    drawer.classList.remove('-translate-x-full');
+                    drawer.classList.add('translate-x-0');
+                    mainContent.classList.add('drawer-open');
+                } else {
+                    drawer.classList.add('-translate-x-full');
+                    drawer.classList.remove('translate-x-0');
+                    mainContent.classList.remove('drawer-open');
+                }
+            });
+
+            // Handle resize
+            window.addEventListener('resize', function() {
+                // Reset drawer on mobile view
+                if (window.innerWidth < 768) {
+                    drawer.classList.add('-translate-x-full');
+                    drawer.classList.remove('translate-x-0');
+                    mainContent.classList.remove('drawer-open');
+                    isDrawerOpen = false;
+                }
+            });
+
+            // Register Service Worker for PWA
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        });
+    </script>
+    <script src="preline.js"></script>
+    <script src="flowbite.js"></script>
+</body>
+
+</html>
